@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عسل للتجارة والتوزيع — نسخة الويب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: toolbar on top, one stage below. The real app (390x844 screens) is scaled to fit the viewport inside either a phone bezel or a desktop browser window. */
+:root {
+  --bg: #EEF2EF;
+  --surface: #FFFFFF;
+  --fg: #17201C;
+  --muted: #55615B;
+  --line: #D3DBD6;
+  --accent: #0E6B57;
+  --accent-fg: #FFFFFF;
+  --chrome: #DDE4E0;
+  --bezel: #1C2622;
+  --font: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131A17; --surface: #1C2622; --fg: #EAF0EC; --muted: #A5B1AA; --line: #34423B;
+    --accent: #3FB89A; --accent-fg: #0B1612; --chrome: #26332D; --bezel: #0A0F0D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131A17; --surface: #1C2622; --fg: #EAF0EC; --muted: #A5B1AA; --line: #34423B;
+  --accent: #3FB89A; --accent-fg: #0B1612; --chrome: #26332D; --bezel: #0A0F0D;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); line-height: 1.6; margin: 0;
+  padding-block: 16px 20px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; }
+h1 { margin: 0; font-size: 20px; font-weight: 700; }
+.sub { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
+.seg { display: inline-flex; background: var(--chrome); border-radius: 12px; padding: 4px; gap: 4px; }
+.seg button { min-height: 44px; padding: 0 18px; border: 0; border-radius: 9px; background: transparent; color: var(--fg); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--accent); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; }
+.chips button { flex-shrink: 0; min-height: 44px; padding: 0 16px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.chips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.stage { display: flex; justify-content: center; }
+.device { display: flex; flex-direction: column; background: var(--surface); direction: ltr; }
+.device.phone { background: var(--bezel); border-radius: 38px; padding: 12px; box-shadow: 0 18px 44px rgba(0,0,0,.28); }
+.device.desktop { width: 100%; max-width: 1040px; border-radius: 14px; border: 1px solid var(--line); overflow: hidden; box-shadow: 0 18px 44px rgba(0,0,0,.16); }
+.top { display: none; align-items: center; gap: 12px; height: 44px; padding: 0 14px; background: var(--chrome); border-bottom: 1px solid var(--line); }
+.desktop .top { display: flex; }
+.dots { display: flex; gap: 6px; }
+.dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--muted); opacity: .45; display: block; }
+.addr { flex: 1; max-width: 420px; margin: 0 auto; height: 28px; border-radius: 14px; background: var(--surface); color: var(--muted); font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; direction: rtl; }
+.canvas { display: flex; justify-content: center; background: var(--bg); }
+.desktop .canvas { background: linear-gradient(180deg, var(--bg), var(--chrome)); }
+.phone .canvas { background: #fff; border-radius: 28px; overflow: hidden; }
+.clip { position: relative; overflow: hidden; }
+.phone .clip { border-radius: 28px; }
+.desktop .clip { box-shadow: 0 0 0 1px var(--line), 0 10px 30px rgba(0,0,0,.14); }
+iframe { position: absolute; top: 0; left: 0; width: 390px; height: 844px; border: 0; transform-origin: top left; background: #F5F7F6; }
+.note { margin: 0; font-size: 13px; color: var(--muted); text-align: center; }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <div>
+      <h1>عسل للتجارة والتوزيع</h1>
+      <p class="sub">هكذا يفتح التطبيق عند التاجر من متصفح الجوال أو الكمبيوتر، بدون تحميل.</p>
+    </div>
+    <div class="seg" role="group" aria-label="طريقة العرض">
+      <button type="button" id="mPhone" aria-pressed="true">جوال</button>
+      <button type="button" id="mDesk" aria-pressed="false">كمبيوتر</button>
+    </div>
+  </div>
+
+  <div class="chips" id="chips" role="group" aria-label="انتقال سريع"></div>
+
+  <div class="stage" id="stage">
+    <div class="device phone" id="device">
+      <div class="top"><div class="dots"><i></i><i></i><i></i></div><div class="addr">عسل للتجارة والتوزيع</div><div style="width:45px"></div></div>
+      <div class="canvas" id="canvas">
+        <div class="clip" id="clip"><iframe id="app" title="تطبيق عسل للتجارة والتوزيع" src="Main.dc.html"></iframe></div>
+      </div>
+    </div>
+  </div>
+  <p class="note">جرّب الأزرار داخل التطبيق: الدخول، الأصناف، السلة، الطلبات، حسابي. أي طلب هنا تجريبي ولا يصل لأحد.</p>
+</div>
+
+<script>
+(function () {
+  var SCREENS = [
+    ['Main', 'دخول وتسجيل'], ['Catalog', 'الأصناف'], ['MerchantOffers', 'العروض'], ['AIOrder', 'اطلب بسرعة'],
+    ['Cart', 'السلة'], ['MyOrders', 'طلباتي'], ['ReorderPreview', 'إعادة الطلب'], ['MerchantInsights', 'ملخصي'], ['Account', 'حسابي']
+  ];
+  var mode = 'phone';
+  var $ = function (id) { return document.getElementById(id); };
+  var app = $('app'), clip = $('clip'), device = $('device'), canvas = $('canvas'), stage = $('stage'), chips = $('chips');
+
+  SCREENS.forEach(function (s) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = s[1]; b.setAttribute('data-s', s[0]); b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { app.src = s[0] + '.dc.html'; });
+    chips.appendChild(b);
+  });
+
+  function markActive() {
+    var cur = '';
+    try { cur = (app.contentWindow.location.pathname.split('/').pop() || '').replace('.dc.html', ''); } catch (e) {}
+    Array.prototype.forEach.call(chips.children, function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-s') === cur ? 'true' : 'false'); });
+  }
+  app.addEventListener('load', markActive);
+
+  function fit() {
+    var chromeH = mode === 'desktop' ? 44 : 0;
+    var pad = mode === 'phone' ? 24 : 0;
+    var top = stage.getBoundingClientRect().top + window.scrollY;
+    var availH = Math.max(520, window.innerHeight - top - 56);
+    var availW = stage.clientWidth;
+    var s = Math.min(1, (availH - chromeH - pad) / 844, (availW - pad - (mode === 'desktop' ? 0 : 0)) / 390);
+    if (mode === 'desktop' && s < 0.85) s = Math.min(0.85, availW / 390);
+    if (s < 0.4) s = 0.4;
+    clip.style.width = Math.round(390 * s) + 'px';
+    clip.style.height = Math.round(844 * s) + 'px';
+    app.style.transform = 'scale(' + s + ')';
+    canvas.style.padding = mode === 'desktop' ? '24px 0' : '0';
+    if (mode === 'phone') device.style.width = Math.round(390 * s) + pad + 'px'; else device.style.width = '';
+  }
+
+  function setMode(m) {
+    mode = m;
+    device.className = 'device ' + m;
+    $('mPhone').setAttribute('aria-pressed', m === 'phone' ? 'true' : 'false');
+    $('mDesk').setAttribute('aria-pressed', m === 'desktop' ? 'true' : 'false');
+    fit();
+  }
+  $('mPhone').addEventListener('click', function () { setMode('phone'); });
+  $('mDesk').addEventListener('click', function () { setMode('desktop'); });
+  window.addEventListener('resize', fit);
+  setMode(window.innerWidth >= 820 ? 'desktop' : 'phone');
+})();
+</script>
+
+</body>
+</html>
